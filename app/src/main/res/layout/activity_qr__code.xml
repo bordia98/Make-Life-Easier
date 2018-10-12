@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QR_Code">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/layout1">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/maincolor"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@id/layout1"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:layout_height="80dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Cash"
+                    android:textStyle="bold"
+                    android:id="@+id/cash"
+                    android:textSize="25dp"
+                    android:layout_margin="5dp"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:background="#003399"
+                    android:textColor="#ffffff"
+                    android:padding="2dp"
+                    android:layout_weight="1"/>
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="UPI Payments"
+                    android:id="@+id/qrcode"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textColor="#ffffff"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:layout_margin="5dp"
+                    android:background="#003399"
+                    android:padding="2dp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:padding="20dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_margin="0dp"
+                    android:padding="5dp"
+                    android:src="@drawable/cash"
+                    android:id="@+id/holder"
+                    android:layout_gravity="center"
+                    android:foregroundGravity="center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Payment Done In Cash"
+                    android:id="@+id/descrip"
+                    android:gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:textColor="@color/maincolor"
+                    android:textStyle="bold"
+                    android:padding="15dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight="5"
+                android:gravity="bottom">
+
+                <Button
+                    android:id="@+id/Generate_invoice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/maincolor"
+                    android:enabled="true"
+                    android:padding="15dp"
+                    android:text="Generate Invoice"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

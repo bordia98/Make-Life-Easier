@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context=".One_Time_show">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:padding="20dp"
+                    android:background="@drawable/logo3"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="italic"
+                    android:textAlignment="center"
+                    android:textSize="11dp"
+                    android:textColor="@color/maincolor"
+                    android:text="Madad Krna Ghar ki hi baat hai"
+                    />
+                </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/layout2"
+                android:layout_below="@id/layout1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Owner's Name"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"
+                        android:padding="10dp"
+                        android:textSize="20dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/owner_name"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textSize="15dp"
+                        android:textStyle="italic"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="Shop's owner name for billing purpose"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:text="Shop's Name"
+                        android:textColor="#343a40"
+                        android:padding="10dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:id="@+id/shop_name"
+                        android:textStyle="italic"
+                        android:textSize="15dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="Shop's name for billing purpose"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Mobile no."
+                        android:textSize="20dp"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/mobno"
+                        android:textStyle="italic"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="Contact number of communication"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#343a40"
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:textStyle="bold"
+                        android:text="GSTIN number:"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gst_number"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        android:textStyle="italic"
+                        android:hint="GST number for invoice generation"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#343a40"
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:textStyle="bold"
+                        android:text="Retailer ID:"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/retail_id"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        android:textStyle="italic"
+                        android:hint="Id provided by TrueBool to retailer"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#343a40"
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:textStyle="bold"
+                        android:text="Organisation ID:"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/organisation_id"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        android:textStyle="italic"
+                        android:hint="Provided by Retails King to the retailer "/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#343a40"
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:textStyle="bold"
+                        android:text="Business Unit ID:"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/businessunit_id"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        android:textStyle="italic"
+                        android:hint="Businessunit"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#343a40"
+                        android:textSize="20dp"
+                        android:padding="10dp"
+                        android:textStyle="bold"
+                        android:text="UPI ID:"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/upi"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15dp"
+                        android:padding="10dp"
+                        android:textStyle="italic"
+                        android:hint="Bhim UPI address for UPI payments"/>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="5dp"
+                android:gravity="bottom">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:padding="10dp"
+                    android:background="@color/maincolor"
+                    android:textStyle="italic"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:id="@+id/submit_details"
+                    android:text="Submit and Proceed"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

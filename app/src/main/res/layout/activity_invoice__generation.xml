@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    tools:context=".Invoice_Generation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/maincolor"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:hint="Shop name"
+                    android:gravity="center_horizontal"
+                    android:textSize="30dp"
+                    android:textColor="@color/maincolor"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:id="@+id/shop"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"
+                        android:textSize="14dp"
+                        android:text="Customer Name"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:hint="name of the customer"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:id="@+id/custname"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="14dp"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"
+                        android:text="Mobile Number"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/custmob"
+                        android:hint="Mobile number of customer"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="14dp"
+                        android:text="Dealer Name"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:hint="name of the dealer"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:id="@+id/dealname"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="14dp"
+                        android:text="Dealer Number"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:hint="Mobile number of dealer"
+                        android:id="@+id/dealmob"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="14dp"
+                        android:text="Dealer GSTID"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:hint="GST number of dealer"
+                        android:id="@+id/dealgst"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Product Purchase Details :"
+                    android:padding="10dp"
+                    android:textColor="#343a40"/>
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:background="#000000"
+                        android:layout_height="wrap_content">
+
+                        <TableLayout
+                            android:id="@+id/billingtable"
+                            android:layout_width="match_parent"
+                            android:stretchColumns="*"
+                            android:layout_height="wrap_content">
+
+                            <TableRow>
+
+                                <TextView
+                                    android:padding="10dp"
+                                    android:textColor="#343a40"
+                                    android:textStyle="bold"
+                                    android:layout_margin="3dp"
+                                    android:background="#FFFFFF"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="2"
+                                    android:textSize="15dp"
+                                    android:text="S.No" />
+
+                                <TextView
+                                    android:padding="10dp"
+                                    android:textColor="#343a40"
+                                    android:textStyle="bold"
+                                    android:background="#FFFFFF"
+                                    android:layout_margin="3dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="3"
+                                    android:textSize="15dp"
+                                    android:text="Product name" />
+
+                                <TextView
+                                    android:padding="10dp"
+                                    android:textColor="#343a40"
+                                    android:textStyle="bold"
+                                    android:background="#FFFFFF"
+                                    android:layout_margin="3dp"
+                                    android:textSize="15dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="Qty." />
+
+                                <TextView
+                                    android:padding="10dp"
+                                    android:textSize="15dp"
+                                    android:textColor="#343a40"
+                                    android:textStyle="bold"
+                                    android:background="#FFFFFF"
+                                    android:layout_margin="3dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="MRP (per item)" />
+
+                                <TextView
+                                    android:textSize="15dp"
+                                    android:padding="10dp"
+                                    android:textColor="#343a40"
+                                    android:textStyle="bold"
+                                    android:layout_margin="3dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="2"
+                                    android:background="#FFFFFF"
+                                    android:text="CGST" />
+
+                                <TextView
+                                    android:padding="10dp"
+                                    android:textSize="15dp"
+                                    android:background="#FFFFFF"
+                                    android:textColor="#343a40"
+                                    android:textStyle="bold"
+                                    android:layout_margin="3dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="SGST" />
+
+                                <TextView
+                                    android:padding="10dp"
+                                    android:textColor="#343a40"
+                                    android:layout_margin="3dp"
+                                    android:textStyle="bold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="3"
+                                    android:background="#FFFFFF"
+                                    android:text="Discount" />
+
+                                <TextView
+                                    android:padding="10dp"
+                                    android:textColor="#343a40"
+                                    android:background="#FFFFFF"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold"
+                                    android:layout_margin="3dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_weight="3"
+                                    android:text="Final Price" />
+                            </TableRow>
+
+                        </TableLayout>
+
+
+                    </HorizontalScrollView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:padding="5dp"
+                        android:text="Total:"
+                        android:textColor="#343a40"
+                        android:background="#FFFFFF"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        />
+                    <TableLayout
+                        android:id="@+id/totaltable"
+                        android:layout_width="match_parent"
+                        android:stretchColumns="*"
+                        android:background="#000000"
+                        android:layout_height="wrap_content">
+
+                        <TableRow>
+
+
+                            <TextView
+                                android:padding="10dp"
+                                android:textColor="#343a40"
+                                android:layout_margin="3dp"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_weight="3"
+                                android:background="#FFFFFF"
+                                android:text="CGST Total:" />
+
+                            <TextView
+                                android:padding="10dp"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:background="#FFFFFF"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:id="@+id/cgsttotal"
+                                android:layout_width="wrap_content"
+                                android:layout_weight="3"
+                                android:text="here will come total" />
+                        </TableRow>
+
+                        <TableRow>
+
+
+                            <TextView
+                                android:padding="10dp"
+                                android:textColor="#343a40"
+                                android:layout_margin="3dp"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_weight="3"
+                                android:background="#FFFFFF"
+                                android:text="SGST Total:" />
+
+                            <TextView
+                                android:padding="10dp"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:background="#FFFFFF"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:id="@+id/sgsttotal"
+                                android:layout_width="wrap_content"
+                                android:layout_weight="3"
+                                android:text="here will come total" />
+                        </TableRow>
+                        <TableRow>
+
+
+                            <TextView
+                                android:padding="10dp"
+                                android:textColor="#343a40"
+                                android:layout_margin="3dp"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_weight="3"
+                                android:background="#FFFFFF"
+                                android:text="Total Discount:" />
+
+                            <TextView
+                                android:padding="10dp"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:background="#FFFFFF"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:id="@+id/discounttotal"
+                                android:layout_width="wrap_content"
+                                android:layout_weight="3"
+                                android:text="here will come total" />
+                        </TableRow>
+
+                        <TableRow>
+
+
+                            <TextView
+                                android:padding="10dp"
+                                android:textColor="#343a40"
+                                android:layout_margin="3dp"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_weight="3"
+                                android:background="#FFFFFF"
+                                android:text="Final Amount:" />
+
+                            <TextView
+                                android:padding="10dp"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:background="#FFFFFF"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:id="@+id/total"
+                                android:layout_width="wrap_content"
+                                android:layout_weight="3"
+                                android:text="here will come total" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginTop="25dp"
+                        android:background="#D0D0D0"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:padding="10dp"
+                        android:text="This is an auto generated invoice. It doesn't require signature of the shop owner"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Share As Pdf"
+                        android:id="@+id/share"
+                        android:background="@color/maincolor"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:padding="5dp"
+                        android:layout_margin="10dp"
+                        />
+
+                </LinearLayout>
+
+
+
+            </ScrollView>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

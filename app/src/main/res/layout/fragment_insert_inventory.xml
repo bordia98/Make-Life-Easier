@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragmentinsert"
+    tools:context=".InsertInventoryFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_weight="0"
+                android:id="@+id/layout1">
+
+                <Button
+                    android:id="@+id/barcodeScanner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@color/maincolor"
+                    android:padding="20dp"
+                    android:text="Scan Barcode"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="First Scan the barcode of the product to enter the data"
+                    android:textColor="#000000"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView"
+                android:layout_weight="20"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Product's Name(*):"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"
+                        android:padding="10dp"
+                        android:textSize="18dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/product_name"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textSize="15dp"
+                        android:textStyle="italic"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="Enter the name of the product"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Barcode Scanned(*):"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"
+                        android:padding="10dp"
+                        android:textSize="18dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/barcode_number"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textSize="15dp"
+                        android:editable="false"
+                        android:textStyle="italic"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Price of the product(including taxes):"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"
+                        android:padding="10dp"
+                        android:textSize="18dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/price"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textSize="15dp"
+                        android:textStyle="italic"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="Enter the selling price"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Quantity of the product"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"
+                        android:padding="10dp"
+                        android:textSize="18dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/quantity"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textSize="15dp"
+                        android:textStyle="italic"
+                        android:text="1"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mention GST_Percent"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"
+                        android:padding="10dp"
+                        android:textSize="18dp"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:id="@+id/GST_info"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:padding="5dp"
+                        android:entries="@array/gst_array"
+                        >
+                    </Spinner>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Discount(%) on the product"
+                        android:textColor="#343a40"
+                        android:textStyle="bold"
+                        android:padding="10dp"
+                        android:textSize="18dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/discount"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textSize="15dp"
+                        android:textStyle="italic"
+                        android:text="0"
+                        android:textColor="@color/colorPrimaryDark" />
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:layout_gravity="bottom"
+                android:gravity="bottom">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Save Product Details"
+                    android:textSize="20dp"
+                    android:enabled="false"
+                    android:id="@+id/save_and_proceed"
+                    android:textColor="#FFFFFF"
+                    android:background="@color/maincolor"
+                    android:padding="1dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</FrameLayout>
