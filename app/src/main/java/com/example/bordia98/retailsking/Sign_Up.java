@@ -2,6 +2,7 @@ package com.example.bordia98.retailsking;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.hardware.camera2.TotalCaptureResult;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,13 +19,21 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthEmailException;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Sign_Up extends AppCompatActivity {
 
-    EditText email,password,confirmpassword;
+    EditText email,password,confirmpassword,adminid;
     Button signup;
     private FirebaseAuth mAuth;
     ProgressBar pgbar;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(getApplicationContext(),Login_Activity.class);
+        startActivity(i);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +49,8 @@ public class Sign_Up extends AppCompatActivity {
         pgbar.setVisibility(View.GONE);
         email=(EditText)findViewById(R.id.emailid);
         password=(EditText)findViewById(R.id.password);
+        confirmpassword = (EditText)findViewById(R.id.confirm_password);
+        adminid = (EditText)findViewById(R.id.admin_id) ;
 
         //Code for admin check and email verification is remaining
 
@@ -82,29 +93,30 @@ public class Sign_Up extends AppCompatActivity {
 
         if(cnfpswd.equals(passwd)){
 
-            pgbar.setVisibility(View.VISIBLE);
-            mAuth.createUserWithEmailAndPassword(username,passwd).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    pgbar.setVisibility(View.GONE);
-                    if (task.isSuccessful()) {
-                        Toast.makeText(getApplicationContext(), "User created successfully", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                        startActivity(i);
-                    }
-                    else{
-                        if (task.getException() instanceof FirebaseAuthEmailException){
-                            Toast.makeText(getApplicationContext(),"User already registered",Toast.LENGTH_SHORT).show();
-                            return;
+            if((adminid.getText().toString()).equals("bordia@98")){
+                pgbar.setVisibility(View.VISIBLE);
+                mAuth.createUserWithEmailAndPassword(username,passwd).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        pgbar.setVisibility(View.GONE);
+                        if (task.isSuccessful()) {
+                            sendverificaitonmail();
+                        }else{
+                            if (task.getException() instanceof FirebaseAuthEmailException){
+                                Toast.makeText(getApplicationContext(),"User already registered",Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(),"make sure your email is correct and is not registered already",Toast.LENGTH_SHORT).show();
+                                return;
+                            }
                         }
-                        else{
-                            Toast.makeText(getApplicationContext(),"make sure your email is correct and is not registered already",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
                     }
-                }
 
-            });
+                });
+            }else{
+                Toast.makeText(this, "You are not authorised to make new Users Please contact admin", Toast.LENGTH_SHORT).show();
+            }
         }
         else{
             confirmpassword.setError("password doesn't matched");
@@ -112,6 +124,24 @@ public class Sign_Up extends AppCompatActivity {
             return;
         }
 
+    }
+
+    private void sendverificaitonmail() {
+        final FirebaseUser user = mAuth.getCurrentUser();
+        if(user!=null){
+            user.sendEmailVerification().addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(getApplicationContext(),"Verificaction mail sent to you mail id",Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(getApplicationContext(),Login_Activity.class);
+                        startActivity(i);
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Verificaction mail sending failed",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 
 }

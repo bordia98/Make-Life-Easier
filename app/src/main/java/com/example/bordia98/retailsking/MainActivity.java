@@ -13,11 +13,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private Boolean firstTime = null;
     ImageView inventory,billingimageview;
+    private FirebaseAuth mAuth;
 
     // handling on back pressed
     @Override
@@ -28,6 +32,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if(user!=null){
+            if(!(user.isEmailVerified())){
+                Intent i = new Intent(getApplicationContext(),Login_Activity.class);
+                startActivity(i);
+            }else{
+                System.out.print("verified and logged in ");
+            }
+        }else{
+            Intent i = new Intent(getApplicationContext(),Login_Activity.class);
+            startActivity(i);
+        }
+    }
+
     // for displaying the icons of the menu in toolbar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -36,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.profile:
             {
                 Intent i = new Intent(getApplicationContext(),ProfileActivity.class);
+                startActivity(i);
+                return true;
+            }
+            case R.id.logout:{
+                FirebaseAuth mauth = FirebaseAuth.getInstance();
+                mauth.signOut();
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(i);
                 return true;
             }
@@ -51,10 +80,13 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        onStart();
         //checking whether it is opened first time or not
         isFirstTime();
 

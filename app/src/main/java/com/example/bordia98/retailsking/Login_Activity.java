@@ -20,12 +20,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login_Activity extends AppCompatActivity {
 
     EditText email,password;
     ProgressBar pgbar;
     private FirebaseAuth mAuth;
+    TextView new_user,forgotpass;
 
 
     @Override
@@ -43,7 +45,24 @@ public class Login_Activity extends AppCompatActivity {
         pgbar.setVisibility(View.GONE);
         email=(EditText)findViewById(R.id.emailid);
         password=(EditText)findViewById(R.id.password);
+        new_user = (TextView) findViewById(R.id.new_user);
+        forgotpass = (TextView)findViewById(R.id.forgot_pass);
 
+        new_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),Sign_Up.class);
+                startActivity(i);
+            }
+        });
+
+        forgotpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),Forget_Passwor.class);
+                startActivity(i);
+            }
+        });
         Button login = (Button)findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,8 +101,13 @@ public class Login_Activity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                                startActivity(i);
+                                final FirebaseUser user = mAuth.getCurrentUser();
+                                if(user!=null && user.isEmailVerified()){
+                                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                                    startActivity(i);
+                                }else{
+                                    Toast.makeText(Login_Activity.this, "Your email-id is not verifiedf", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
                                 Toast.makeText(Login_Activity.this, "Please check your credentials", Toast.LENGTH_SHORT).show();
                             }
