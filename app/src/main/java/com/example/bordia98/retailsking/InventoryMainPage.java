@@ -19,6 +19,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -50,6 +52,14 @@ public class InventoryMainPage extends AppCompatActivity
             case R.id.billing:{
                 Intent i = new Intent(getApplicationContext(),Billing.class);
                 startActivity(i);
+                return true;
+            }
+            case R.id.logout:{
+                FirebaseAuth mauth = FirebaseAuth.getInstance();
+                mauth.signOut();
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
+                return true;
             }
             default:
                 return super.onOptionsItemSelected(item);

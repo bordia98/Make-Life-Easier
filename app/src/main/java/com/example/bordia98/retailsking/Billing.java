@@ -21,6 +21,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import java.util.ArrayList;
@@ -355,6 +357,13 @@ public class Billing extends AppCompatActivity {
             }
             case R.id.transaction:{
                 Intent i = new Intent(getApplicationContext(),Transaction_History.class);
+                startActivity(i);
+                return true;
+            }
+            case R.id.logout:{
+                FirebaseAuth mauth = FirebaseAuth.getInstance();
+                mauth.signOut();
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(i);
                 return true;
             }
