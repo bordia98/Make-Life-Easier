@@ -52,6 +52,7 @@ public class InventoryMainPage extends AppCompatActivity
             case R.id.billing:{
                 Intent i = new Intent(getApplicationContext(),Billing.class);
                 startActivity(i);
+                return true;
             }
             case R.id.logout:{
                 FirebaseAuth mauth = FirebaseAuth.getInstance();

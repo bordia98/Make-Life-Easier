@@ -86,7 +86,7 @@ public class QR_Code extends AppCompatActivity {
         SQLiteDatabase db = helper.getReadableDatabase();
         String query = "Select * from Personal_Details";
         Cursor c = db.rawQuery(query,null);
-        String upi = "www.truebool.com";
+        String upi = "9611590381@upi";
         c.moveToFirst();
         while (!c.isAfterLast()){
             upi = c.getString(7);

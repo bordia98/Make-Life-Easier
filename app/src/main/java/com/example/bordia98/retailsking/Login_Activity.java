@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -95,11 +94,13 @@ public class Login_Activity extends AppCompatActivity {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
 
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+            pgbar.setVisibility(View.VISIBLE);
             mAuth.signInWithEmailAndPassword(emailid, passwordid)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                            pgbar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 final FirebaseUser user = mAuth.getCurrentUser();
                                 if(user!=null && user.isEmailVerified()){

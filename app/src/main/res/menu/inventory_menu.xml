@@ -24,8 +24,6 @@
         android:icon="@drawable/billing"
         android:title="inventory"
         >
-
-
     </item>
 
     <item
